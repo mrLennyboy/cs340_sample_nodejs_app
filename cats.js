@@ -25,7 +25,7 @@ module.exports = function () {
     }
 
     
-    function getACat(res, mysql, context, id, complete){
+    function getACat(res, mysql, context, pet_id, complete){
         var sql = "SELECT pet_id, birthday, sex, breed, weight, availability, adoption_fee FROM cats";
         var inserts = [pet_id];
         mysql.pool.query(sql, inserts, function(error, results, fields){
