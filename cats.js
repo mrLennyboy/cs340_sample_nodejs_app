@@ -19,7 +19,7 @@ module.exports = function () {
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.planets = results;
+            context.cat_breed = results;
             complete();
         });
     }
@@ -59,3 +59,4 @@ module.exports = function () {
 
     return router;
 }();
+
