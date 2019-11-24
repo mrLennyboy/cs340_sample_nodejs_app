@@ -24,6 +24,40 @@ module.exports = function () {
         });
     }
 
+    
+    function getACat(res, mysql, context, id, complete){
+        var sql = "SELECT pet_id, birthday, sex, breed, weight, availability, adoption_fee FROM cats";
+        var inserts = [pet_id];
+        mysql.pool.query(sql, inserts, function(error, results, fields){
+            if(error){
+                res.write(JSON.stringify(error));
+                res.end();
+            }
+            context.cats = results[0];
+            complete();
+        });
+    }
+
+    /* Display one cat for the specific purpose of updating cat */
+
+    router.get('/:id', function(req, res){
+        callbackCount = 0;
+        var context = {};
+        context.jsscripts = ["selectedplanet.js", "updateperson.js"];
+        var mysql = req.app.get('mysql');
+        getACat(res, mysql, context, req.params.id, complete); //seperate from getCats
+        getCatBreeds(res, mysql, context, complete);
+        function complete(){
+            callbackCount++;
+            if(callbackCount >= 2){
+                res.render('update-cat', context);
+            }
+
+        }
+    });
+
+     /*Display all cats. Requires web based javascript to delete users with AJAX*/
+
     router.get('/', function (req, res) {
         var callbackCount = 0;
         var context = {};
