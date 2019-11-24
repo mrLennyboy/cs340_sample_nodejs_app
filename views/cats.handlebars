@@ -1,8 +1,8 @@
 <html>
 <h3>Add new cat:</h3>
-{{#each foo}}
+{{!-- {{#each foo}}	//unnecessary, the javascript has no reference to it
 {{this}}
-{{/each}}
+{{/each}} --}}
 <form id="addcat" action="/cats" method="post">
     Name: <input type="text" name="name"><br>
     Birthday: <input type="date" name="birthday"><br>
@@ -36,7 +36,7 @@
     <th>Adoption Fee</th>
     </thead>
     <tbody>
-        {{#each cat}}
+        {{#each cats}}
         <tr>
             <td>{{pet_Id}}</td>
             <td>{{name}}</td>

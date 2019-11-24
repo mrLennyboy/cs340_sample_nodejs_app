@@ -8,7 +8,7 @@ module.exports = function () {
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.cat = results;
+            context.cats = results;  //context.cats, "cats" is what to reference for #each
             complete();
         });
     }
