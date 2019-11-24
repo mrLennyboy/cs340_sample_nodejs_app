@@ -1,12 +1,8 @@
 <html>
-<h1>Update {{cats.name}}:</h1>
+<h1>Update {{aCat.name}}:</h1>
 <form id="update-cats" action="/cats" method="post">
-    Name: <input type="text" name="name" value="{{cats.name}}"><br>
-    Homeworld: <select name="homeworld" id="planet-selector"> 
-        {{#each planets}}
-            <option value="{{id}}">{{name}}</option>
-        {{/each}}
-    </select><br>
+    Name: <input type="text" name="name" value="{{aCat.name}}"><br>
+    Birthday: <input type="date" name="birthday" value="{{aCat.birthday}}"><br> {{!-- Maybe change name as number and for ease of project, need to write code to convert date --}}
     Age: <input type="number" name="age" value="{{cats.age}}"><br>
 </form>
 <button onclick="updatePerson({{cats.id}})">Update</button>
@@ -29,3 +25,6 @@
     <input type="radio" name="availability" value="N"> Not Available<br>
     Adoption Fee: <input type="text" name="adoption_fee"><br>
     <input type="submit" value="Submit"> --}}
+
+{{!-- var sql = "SELECT pet_Id as id, name, birthday, sex, breed, weight, availability, adoption_fee FROM cats"; --}}
+{{!-- var sql = "SELECT pet_Id as id, name, birthday, sex, breed, weight, availability, adoption_fee FROM cats"; --}}

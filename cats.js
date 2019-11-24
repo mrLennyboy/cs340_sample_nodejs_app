@@ -25,15 +25,15 @@ module.exports = function () {
     }
 
     
-    function getACat(res, mysql, context, pet_Id, complete){
-        var sql = "SELECT pet_Id, birthday, sex, breed, weight, availability, adoption_fee FROM cats";
-        var inserts = [pet_Id];
+    function getACat(res, mysql, context, id, complete){ //similar to function getPerson
+        var sql = "SELECT pet_Id as id, name, birthday, sex, breed, weight, availability, adoption_fee FROM cats";
+        var inserts = [id];
         mysql.pool.query(sql, inserts, function(error, results, fields){
             if(error){
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.cats = results[0];
+            context.aCat = results[0];
             complete();
         });
     }
@@ -43,7 +43,7 @@ module.exports = function () {
     router.get('/:pet_Id', function(req, res){
         callbackCount = 0;
         var context = {};
-        context.jsscripts = ["selectedplanet.js", "updateperson.js"];
+        context.jsscripts = ["selectedplanet.js", "updatecat.js"];
         var mysql = req.app.get('mysql');
         getACat(res, mysql, context, req.params.pet_Id, complete); //seperate from getCats
         getCatBreeds(res, mysql, context, complete);
