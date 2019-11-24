@@ -1,8 +1,7 @@
 <html>
-<h1>Update {{cats.fname}} {{cats.lname}}:</h1>
-<form id="update-cats" action="/people" method="post">
-    First name: <input type="text" name="name" value="{{cats.name}}"><br>
-    Last name: <input type="text" name="lname" value="{{cats.lname}}"><br>
+<h1>Update {{cats.name}}:</h1>
+<form id="update-cats" action="/cats" method="post">
+    Name: <input type="text" name="name" value="{{cats.name}}"><br>
     Homeworld: <select name="homeworld" id="planet-selector"> 
         {{#each planets}}
             <option value="{{id}}">{{name}}</option>
@@ -13,3 +12,20 @@
 <button onclick="updatePerson({{cats.id}})">Update</button>
 <script defer>selectPlanet({{cats.homeworld}});</script>
 </html>
+
+    {{!-- Name: <input type="text" name="name"><br>
+    Birthday: <input type="date" name="birthday"><br>
+    Sex:
+    <input type="radio" name="sex" value="M"> Male
+    <input type="radio" name="sex" value="F"> Female<br>
+    Breed:  <select name="breed">
+        {{#each cat_breed}}
+        <option value="{{cat_breed_Id}}">{{cat_breed_name}}</option>
+        {{/each}}
+    </select><br>
+    Weight: <input type="text" name="weight"><br>
+    Availability:
+    <input type="radio" name="availability" value="Y"> Available
+    <input type="radio" name="availability" value="N"> Not Available<br>
+    Adoption Fee: <input type="text" name="adoption_fee"><br>
+    <input type="submit" value="Submit"> --}}
