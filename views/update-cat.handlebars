@@ -4,6 +4,9 @@
     Name: <input type="text" name="name" value="{{aCat.name}}"><br>
     Birthday: <input type="date" name="birthday" value="{{aCat.birthday}}"><br> {{!-- Maybe change name as number and for ease of project, need to write code to convert date --}}
     Age: <input type="number" name="age" value="{{cats.age}}"><br>
+    Sex:
+    <input type="radio" name="sex" value="M"> Male
+    <input type="radio" name="sex" value="F"> Female<br>
 </form>
 <button onclick="updatePerson({{cats.id}})">Update</button>
 <script defer>selectPlanet({{cats.homeworld}});</script>
@@ -27,4 +30,5 @@
     <input type="submit" value="Submit"> --}}
 
 {{!-- var sql = "SELECT pet_Id as id, name, birthday, sex, breed, weight, availability, adoption_fee FROM cats"; --}}
-{{!-- var sql = "SELECT pet_Id as id, name, birthday, sex, breed, weight, availability, adoption_fee FROM cats"; --}}
+
+{{!--  Need break from update will work on delete for now 11-24-19 --}}
