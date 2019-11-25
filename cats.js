@@ -75,7 +75,7 @@ module.exports = function () {
     });
 
     router.post('/', function (req, res) {
-        console.log(req.body.homeworld)
+        console.log(req.body.homeworld) //why homeworld?
         console.log(req.body)
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO cats (name, birthday, sex, breed, weight, availability, adoption_fee) VALUES (?,?,?,?, ?, ? ,?)";
@@ -90,6 +90,24 @@ module.exports = function () {
             }
         });
     });
+
+        /* Route to delete a cat, simply returns a 202 upon success. Ajax will handle this. */
+
+        router.delete('/:pet_Id', function(req, res){
+            var mysql = req.app.get('mysql');
+            var sql = "DELETE FROM cats WHERE pet_Id = ?";
+            var inserts = [req.params.id];
+            sql = mysql.pool.query(sql, inserts, function(error, results, fields){
+                if(error){
+                    console.log(error)
+                    res.write(JSON.stringify(error));
+                    res.status(400);
+                    res.end();
+                }else{
+                    res.status(202).end();
+                }
+            })
+        })
 
     return router;
 }();
