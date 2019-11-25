@@ -96,7 +96,7 @@ module.exports = function () {
         router.delete('/:pet_Id', function(req, res){
             var mysql = req.app.get('mysql');
             var sql = "DELETE FROM cats WHERE pet_Id = ?";
-            var inserts = [req.params.id];
+            var inserts = [req.params.pet_Id];
             sql = mysql.pool.query(sql, inserts, function(error, results, fields){
                 if(error){
                     console.log(error)
