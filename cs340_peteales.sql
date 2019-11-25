@@ -470,7 +470,7 @@ ALTER TABLE `medicalRecordsDogs`
 -- Constraints for table `cats`
 --
 ALTER TABLE `cats`
-  ADD CONSTRAINT `cats_ibfk_1` FOREIGN KEY (`breed`) REFERENCES `cat_breed` (`cat_breed_Id`),
+  ADD CONSTRAINT `cats_ibfk_1` FOREIGN KEY (`breed`) REFERENCES `cat_breed` (`cat_breed_Id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `cats_ibfk_2` FOREIGN KEY (`color`) REFERENCES `cat_color` (`cat_color_Id`),
   ADD CONSTRAINT `cats_ibfk_3` FOREIGN KEY (`owner`) REFERENCES `clients` (`client_Id`),
   ADD CONSTRAINT `cats_ibfk_4` FOREIGN KEY (`sponsor`) REFERENCES `cat_sponsors` (`cat_sponsors_Id`),
@@ -480,7 +480,7 @@ ALTER TABLE `cats`
 -- Constraints for table `cat_breed`
 --
 ALTER TABLE `cat_breed`
-  ADD CONSTRAINT `cat_breed_ibfk_1` FOREIGN KEY (`cat_Id`) REFERENCES `cats` (`pet_Id`);
+  ADD CONSTRAINT `cat_breed_ibfk_1` FOREIGN KEY (`cat_Id`) REFERENCES `cats` (`pet_Id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `cat_color`
