@@ -1,6 +1,6 @@
-function deleteCat(pet_Id) {
+function deleteCat(id) {
     $.ajax({
-        url: '/cats/' + pet_Id,
+        url: '/cats/' + id,
         type: 'DELETE',
         success: function (result) {
             window.location.reload(true);
