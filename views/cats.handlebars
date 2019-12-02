@@ -1,8 +1,8 @@
 <html>
 <h3>Add new cat:</h3>
-{{!-- {{#each foo}}	//unnecessary, the javascript has no reference to it
+{{#each foo}}
 {{this}}
-{{/each}} --}}
+{{/each}}
 <form id="addcat" action="/cats" method="post">
     Name: <input type="text" name="name"><br>
     Birthday: <input type="date" name="birthday"><br>
@@ -36,7 +36,7 @@
     <th>Adoption Fee</th>
     </thead>
     <tbody>
-        {{#each cats}}
+        {{#each people}}
         <tr>
             <td>{{pet_Id}}</td>
             <td>{{name}}</td>
@@ -46,9 +46,8 @@
             <td>{{weight}}</td>
             <td>{{availability}}</td>
             <td>{{adoption_fee}}</td>
-			<td><button onclick = "deleteCat({{pet_Id}})">Delete</button></td>
-			<td><a href="/cats/{{pet_Id}}">Update</a></td> 
-			{{!-- for some reason does not work as a button but works as anchor --}}
+            <td><a href="/cats/{{pet_Id}}">Update</a></td>
+            <td><button onclick="deleteCat({{pet_Id}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>
