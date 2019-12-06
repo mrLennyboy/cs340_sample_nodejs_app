@@ -1,0 +1,58 @@
+<html>
+<h3>Add new dog:</h3>
+{{#each foo}}
+{{this}}
+{{/each}}
+<form id="adddog" action="/dogs" method="post">
+    Name: <input type="text" name="name"><br>
+    Birthday: <input type="date" name="birthday"><br>
+    Sex: <select name="sex">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select><br>
+    Breed:  <select name="breed">
+        {{#each dog_breed}}
+        <option value="{{dog_breed_Id}}">{{dog_breed_name}}</option>
+        {{/each}}
+    </select><br>
+    Weight: <input type="text" name="weight"><br>
+    Availability:
+    <select name="availability">
+        <option value="Y">Available</option>
+        <option value="N">Not Available</option>
+    </select><br>
+    Adoption Fee: <input type="text" name="adoption_fee"><br>
+    <input type="submit" value="Submit">
+</form>
+<br />
+
+<h3>Current dogs:</h3>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Birthday</th>
+    <th>Sex</th>
+    <th>Breed</th>
+    <th>Weight</th>
+    <th>Availability</th>
+    <th>Adoption Fee</th>
+    </thead>
+    <tbody>
+        {{#each dogs}}
+        <tr>
+            <td>{{pet_Id}}</td>
+            <td>{{name}}</td>
+            <td>{{birthday}}</td>
+            <td>{{sex}}</td>
+            <td>{{breed}}</td>
+            <td>{{weight}}</td>
+            <td>{{availability}}</td>
+            <td>{{adoption_fee}}</td>
+            <td><a href="/dogs/{{pet_Id}}">Update</a></td>
+            <td><button onclick="deleteDog({{pet_Id}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</html>
