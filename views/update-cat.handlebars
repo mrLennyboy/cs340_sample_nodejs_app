@@ -13,10 +13,12 @@
     </select><br>
 	Weight: <input type="text" name="weight"><br>
     Availability:
-    <input type="radio" name="availability" value="Y"> Available
-    <input type="radio" name="availability" value="N"> Not Available<br>
-    Adoption Fee: <input type="text" name="adoption_fee" value="{{cat.adoption_fee}}"><br>
-
+    <select name="availability">
+        <option value="Y">Available</option>
+        <option value="N">Not Available</option>
+        </select><br />
+    Adoption Fee:
+        <input type="text" name="adoption_fee" value="{{cat.adoption_fee}}"><br>
 </form>
 <button onclick="updateCat({{cat.id}})">Update</button>
 <script defer>selectBreed({{cat.breed}});</script>
