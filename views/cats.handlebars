@@ -6,9 +6,10 @@
 <form id="addcat" action="/cats" method="post">
     Name: <input type="text" name="name"><br>
     Birthday: <input type="date" name="birthday"><br>
-    Sex:
-    <input type="radio" name="sex" value="M"> Male
-    <input type="radio" name="sex" value="F"> Female<br>
+    Sex: <select name="sex">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select><br>
     Breed:  <select name="breed">
         {{#each cat_breed}}
         <option value="{{cat_breed_Id}}">{{cat_breed_name}}</option>
@@ -16,8 +17,10 @@
     </select><br>
     Weight: <input type="text" name="weight"><br>
     Availability:
-    <input type="radio" name="availability" value="Y"> Available
-    <input type="radio" name="availability" value="N"> Not Available<br>
+    <select name="availability">
+        <option value="Y">Available</option>
+        <option value="N">Not Available</option>
+    </select><br>
     Adoption Fee: <input type="text" name="adoption_fee"><br>
     <input type="submit" value="Submit">
 </form>
@@ -36,7 +39,7 @@
     <th>Adoption Fee</th>
     </thead>
     <tbody>
-        {{#each people}}
+        {{#each cats}}
         <tr>
             <td>{{pet_Id}}</td>
             <td>{{name}}</td>
