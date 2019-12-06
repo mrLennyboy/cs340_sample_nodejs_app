@@ -1,0 +1,11 @@
+<html>
+<h1>Update {{client.first_name}}:</h1>
+<form id="update-client" action="/clients" method="post">
+    First Name: <input type="text" name="first_name" value="{{client.first_name}}"><br>
+    Last Name: <input type="text" name="last_name" value="{{client.last_name}}"><br>
+    Address: <input type="text" name="address" value="{{client.address}}"><br>
+    Phone Number: <input type="text" name="phone_number" value="{{client.phone_number}}"><br>
+    E-mail: <input type="text" name="email" value="{{client.email}}"><br>
+</form>
+<button onclick="updateClient({{client.client_Id}})">Update</button>
+</html>
