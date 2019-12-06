@@ -9,7 +9,7 @@ module.exports = function () {
                 res.write(JSON.stringify(error));
                 res.end();
             }
-            context.people = results;
+            context.cats = results;
             complete();
         });
     }
@@ -72,7 +72,7 @@ module.exports = function () {
     });
 
     router.post('/', function (req, res) {
-        console.log(req.body.homeworld)
+        console.log(req.body.cats)
         console.log(req.body)
         var mysql = req.app.get('mysql');
         var sql = "INSERT INTO cats (name, birthday, sex, breed, weight, availability, adoption_fee) VALUES (?,?,?,?, ?, ? ,?)";
