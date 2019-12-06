@@ -1,0 +1,11 @@
+<html>
+<h1>Update {{donor.first_name}}:</h1>
+<form id="update-donor" action="/donors" method="post">
+    First Name: <input type="text" name="first_name" value="{{donor.first_name}}"><br>
+    Last Name: <input type="text" name="last_name" value="{{donor.last_name}}"><br>
+    Address: <input type="text" name="address" value="{{donor.address}}"><br>
+    Phone Number: <input type="text" name="phone_number" value="{{donor.phone_number}}"><br>
+    E-mail: <input type="text" name="email" value="{{donor.email}}"><br>
+</form>
+<button onclick="updateDonor({{donor.donor_Id}})">Update</button>
+</html>
