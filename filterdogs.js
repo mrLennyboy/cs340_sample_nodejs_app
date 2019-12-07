@@ -2,5 +2,5 @@ function filterPeopleByHomeworld() {
     //get the id of the selected homeworld from the filter dropdown
     var homeworld_id = document.getElementById('homeworld_filter').value
     //construct the URL and redirect to it
-    window.location = '/cats/filter/' + parseInt(homeworld_id)
+    window.location = '/dogs/filter/' + parseInt(homeworld_id)
 }
