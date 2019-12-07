@@ -13,8 +13,10 @@ app.use('/static', express.static('public'));
 app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
-
-
+app.use('/donors', require('./donors.js'));
+app.use('/clients', require('./clients.js'));
+app.use('/dog_breed', require('./dog_breed.js'));
+app.use('/dogs', require('./dogs.js'));
 app.use('/cats', require('./cats.js'));
 app.use('/', express.static('public'));
 

@@ -14,6 +14,7 @@ app.set('view engine', 'handlebars');
 app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 app.use('/cats', require('./cats.js'));
+app.use('/clients', require('./clients.js'));
 app.use('/', express.static('public'));
 
 app.use(function (req, res) {

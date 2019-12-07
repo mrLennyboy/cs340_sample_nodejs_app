@@ -1,0 +1,29 @@
+<html>
+<h3>Add new breed:</h3>
+{{#each foo}}
+{{this}}
+{{/each}}
+<form id="adddogbreed" action="/dog_breed" method="post">
+    Name: <input type="text" name="dog_breed_name"><br>
+    <input type="submit" value="Submit">
+</form>
+<br />
+
+<h3>Breeds:</h3>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>Breed Name</th>
+    </thead>
+    <tbody>
+        {{#each dog_breed}}
+        <tr>
+            <td>{{dog_breed_Id}}</td>
+            <td>{{dog_breed_name}}</td>
+            <td><a href="/dog_breed/{{dog_breed_Id}}">Update</a></td>
+            <td><button onclick="deleteDogBreed({{dog_breed_Id}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</html>

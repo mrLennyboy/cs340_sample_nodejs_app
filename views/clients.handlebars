@@ -1,0 +1,41 @@
+<html>
+<h3>Add new client:</h3>
+{{#each foo}}
+{{this}}
+{{/each}}
+<form id="addclient" action="/clients" method="post">
+    First Name: <input type="text" name="first_name"><br>
+	Last Name: <input type="text" name="last_name"><br>
+    Address: <input type="text" name="address"><br>
+    Phone Number: <input type="text" name="phone_number"><br>
+	E-mail: <input type="text" name="email"><br>    
+    <input type="submit" value="Submit">
+</form>
+<br />
+
+<h3>Current clients:</h3>
+<table>
+    <thead>
+    <th>ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Address</th>
+    <th>Phone Number</th>
+    <th>E-Mail</th>
+    </thead>
+    <tbody>
+        {{#each clients}}
+        <tr>
+            <td>{{client_Id}}</td>
+            <td>{{first_name}}</td>
+            <td>{{last_name}}</td>
+            <td>{{address}}</td>
+            <td>{{phone_number}}</td>
+            <td>{{email}}</td>
+            <td><a href="/clients/{{client_Id}}">Update</a></td>
+            <td><button onclick="deleteClient({{client_Id}})">Delete</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</html>

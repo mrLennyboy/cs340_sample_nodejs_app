@@ -1,9 +1,9 @@
 <html>
-<h3>Add new cat:</h3>
+<h3>Add new dog:</h3>
 {{#each foo}}
 {{this}}
 {{/each}}
-<form id="addcat" action="/cats" method="post">
+<form id="adddog" action="/dogs" method="post">
     Name: <input type="text" name="name"><br>
     Birthday: <input type="date" name="birthday"><br>
     Sex: <select name="sex">
@@ -11,8 +11,8 @@
         <option value="F">Female</option>
     </select><br>
     Breed:  <select name="breed">
-        {{#each cat_breed}}
-        <option value="{{cat_breed_Id}}">{{cat_breed_name}}</option>
+        {{#each dog_breed}}
+        <option value="{{dog_breed_Id}}">{{dog_breed_name}}</option>
         {{/each}}
     </select><br>
     Weight: <input type="text" name="weight"><br>
@@ -26,7 +26,7 @@
 </form>
 <br />
 
-<h3>Current cats:</h3>
+<h3>Current dogs:</h3>
 <table>
     <thead>
     <th>ID</th>
@@ -39,7 +39,7 @@
     <th>Adoption Fee</th>
     </thead>
     <tbody>
-        {{#each cats}}
+        {{#each dogs}}
         <tr>
             <td>{{pet_Id}}</td>
             <td>{{name}}</td>
@@ -49,8 +49,8 @@
             <td>{{weight}}</td>
             <td>{{availability}}</td>
             <td>{{adoption_fee}}</td>
-            <td><a href="/cats/{{pet_Id}}">Update</a></td>
-            <td><button onclick="deleteCat({{pet_Id}})">Delete</button></td>
+            <td><a href="/dogs/{{pet_Id}}">Update</a></td>
+            <td><button onclick="deleteDog({{pet_Id}})">Delete</button></td>
         </tr>
         {{/each}}
     </tbody>

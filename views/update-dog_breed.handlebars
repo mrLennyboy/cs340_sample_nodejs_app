@@ -1,0 +1,8 @@
+<html>
+<h1>Update {{dog_breed.dog_breedname}}:</h1>
+<form id="update-dog_breed" action="/dog_breeds" method="post">
+    Name: <input type="text" name="name" value="{{dog_breed.dog_breed_name}}"><br>
+</form>
+<button onclick="updateDogBreed({{dog_breed.id}})">Update</button>
+<script defer>selectBreed({{dog.breed}});</script>
+</html>

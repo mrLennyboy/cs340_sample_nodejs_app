@@ -1,0 +1,25 @@
+<html>
+<h1>Update {{dog.name}}:</h1>
+<form id="update-dog" action="/dogs" method="post">
+    Name: <input type="text" name="name" value="{{dog.name}}"><br>
+    Birthday: <input type="date" name="birthday" value="{{dog.birthday}}"><br>
+	Sex:
+    <input type="radio" name="sex" value="M"> Male
+    <input type="radio" name="sex" value="F"> Female<br>
+    Breed:  <select name="breed"  id="breed-selector">
+        {{#each dog_breed}}
+        <option value="{{dog_breed_Id}}">{{dog_breed_name}}</option>
+        {{/each}}
+    </select><br>
+	Weight: <input type="text" name="weight"><br>
+    Availability:
+    <select name="availability">
+        <option value="Y">Available</option>
+        <option value="N">Not Available</option>
+        </select><br />
+    Adoption Fee:
+        <input type="text" name="adoption_fee" value="{{dog.adoption_fee}}"><br>
+</form>
+<button onclick="updateDog({{dog.id}})">Update</button>
+<script defer>selectBreed({{dog.breed}});</script>
+</html>
