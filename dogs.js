@@ -2,7 +2,7 @@ module.exports = function () {
     var express = require('express');
     var router = express.Router();
 
-    // get cats
+    // get dogs
     function getDogs(res, mysql, context, complete) {
         mysql.pool.query("SELECT pet_Id, name, birthday, sex, breed, weight, availability, adoption_fee FROM dogs", function (error, results, fields) {
             if (error) {
@@ -14,7 +14,7 @@ module.exports = function () {
         });
     }
 
-    // get cat breeds
+    // get dog breeds
     function getDogBreeds(res, mysql, context, complete) {
         mysql.pool.query("SELECT dog_breed_Id, dog_breed_name FROM dog_breed", function (error, results, fields) {
             if (error) {

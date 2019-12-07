@@ -1,6 +1,6 @@
-function filterPeopleByHomeworld() {
+function filterDonors() {
     //get the id of the selected homeworld from the filter dropdown
-    var homeworld_id = document.getElementById('homeworld_filter').value
+    var homeworld_id = document.getElementById('donors_filter').value
     //construct the URL and redirect to it
-    window.location = '/clients/filter/' + parseInt(homeworld_id)
+    window.location = '/donors/filter/' + parseInt(homeworld_id)
 }
